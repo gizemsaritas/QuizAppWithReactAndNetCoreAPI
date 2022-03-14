@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<QuizDbContext>(opt => opt.UseSqlServer());
+builder.Services.AddDbContext<QuizDbContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection")));
 
 var app = builder.Build();
 
